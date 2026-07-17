@@ -5,7 +5,7 @@
 ```text
 Schrank 5
 Stromkreise und Belegung USV1
-Hinweis: Die Bezeichnungen wurden aus der Quelle unverändert übernommen (inkl. Punkt-/Komma-Schreibweisen).
+Hinweis: Die Bezeichnungen wurden aus der Quelle unverändert übernommen; Schrank 5 enthält überwiegend Punkt-Schreibweisen, Schrank 6 überwiegend Komma-Schreibweisen.
 
 Q21
 21F1.1   Rack 4.5
@@ -94,7 +94,7 @@ Q25
 25F1.12  Rack 7.2
 25F1.13  Rack 7.4
 25F1.14  Rack 7.4
-25F1.15  UV-Überwachung
+25F1.15  USV-Überwachung
 25F1.16  Alarm
 
 Schrank 6
