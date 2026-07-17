@@ -5,6 +5,7 @@
 ```text
 Schrank 5
 Stromkreise und Belegung USV1
+Hinweis: Die Bezeichnungen wurden aus der Quelle unverändert übernommen (inkl. Punkt-/Komma-Schreibweisen).
 
 Q21
 21F1.1   Rack 4.5
@@ -150,7 +151,7 @@ Trenner Q8
 33F1.13  Rack 5,7
 33F1.14  Rack 5,7
 33F1.15  Rack 5,7
-33F1.16  Rack
+33F1.16  Rack (nicht angegeben)
 
 Trenner Q9
 34F1.1   Regal 2,1
@@ -178,7 +179,7 @@ Trenner Q10
 35F1.5   Regal 6,1
 35F1.6   Regal 6,1
 35F1.7   Rack/Regal 6.2 und 6.3
-35F1.8
+35F1.8   (nicht angegeben)
 35F1.9   Rack 4,1
 35F1.10  Regal 6,3
 35F1.11  Rack 3,6
