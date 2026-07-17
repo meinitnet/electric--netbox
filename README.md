@@ -151,7 +151,7 @@ Trenner Q8
 33F1.13  Rack 5,7
 33F1.14  Rack 5,7
 33F1.15  Rack 5,7
-33F1.16  Rack (nicht angegeben)
+33F1.16  (nicht angegeben)
 
 Trenner Q9
 34F1.1   Regal 2,1
