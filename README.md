@@ -178,7 +178,7 @@ Trenner Q10
 35F1.4   Rack 7,3
 35F1.5   Regal 6,1
 35F1.6   Regal 6,1
-35F1.7   Rack/Regal 6.2 und 6.3 (laut Quelle)
+35F1.7   Rack/Regal 6,2 und 6,3
 35F1.8   (nicht angegeben)
 35F1.9   Rack 4,1
 35F1.10  Regal 6,3
