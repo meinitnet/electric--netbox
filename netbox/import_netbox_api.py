@@ -282,6 +282,27 @@ def ensure_power_port(
     return obj["id"]
 
 
+def ensure_power_outlet(
+    nb: NetBoxClient,
+    device_id: int,
+    outlet_name: str,
+    update_existing: bool,
+) -> int:
+    payload = {
+        "device": device_id,
+        "name": outlet_name,
+        "type": "iec-60320-c13",
+        "description": "Auto-created for cable import",
+    }
+    obj = nb.ensure(
+        "dcim/power-outlets",
+        {"device_id": device_id, "name": outlet_name},
+        payload,
+        update_existing=update_existing,
+    )
+    return obj["id"]
+
+
 def ensure_panel_feed(
     nb: NetBoxClient,
     panel_id: int,
@@ -308,6 +329,7 @@ def ensure_panel_feed(
 def resolve_termination(
     nb: NetBoxClient,
     endpoint: Dict[str, Any],
+    side: str,
     site_ids: Dict[str, int],
     location_ids: Dict[str, int],
     manufacturer_ids: Dict[str, int],
@@ -331,6 +353,10 @@ def resolve_termination(
             device_ids,
             update_existing,
         )
+        # NetBox expects directional power cabling: source outlet -> destination port.
+        if side == "a":
+            power_outlet_id = ensure_power_outlet(nb, device_id, term_name, update_existing)
+            return {"object_type": "dcim.poweroutlet", "object_id": power_outlet_id}
         power_port_id = ensure_power_port(nb, device_id, term_name, update_existing)
         return {"object_type": "dcim.powerport", "object_id": power_port_id}
 
@@ -365,6 +391,7 @@ def import_cables(
         a_term = resolve_termination(
             nb,
             cable["a_terminations"][0],
+            "a",
             site_ids,
             location_ids,
             manufacturer_ids,
@@ -377,6 +404,7 @@ def import_cables(
         b_term = resolve_termination(
             nb,
             cable["b_terminations"][0],
+            "b",
             site_ids,
             location_ids,
             manufacturer_ids,

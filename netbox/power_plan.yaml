@@ -314,12 +314,6 @@ device_types:
     u_height: 0
     is_full_depth: false
 
-  - manufacturer: Generic
-    model: Bladecenter
-    slug: bladecenter
-    u_height: 10
-    is_full_depth: true
-
 
 # -----------------------------------------------------------------------------
 # DEVICES  (USV-Anlagen, Koppelschrank, Sondergeräte)
@@ -351,7 +345,7 @@ devices:
 
   - name: Liebert Bypass-Schrank
     site: OMCnet
-    device_type: Liebert Bypass-Schrank
+    device_type: Bypass-Schrank
     role: ups
     status: active
     description: Liebert-Bypass für USV-Feld (Q3)
@@ -362,14 +356,6 @@ devices:
     role: pdu
     status: active
     description: Hauptverteilung – Einspeisung über 3x4x185mm²/95 in USV-Feld
-
-  - name: Bladecenter 1
-    site: OMCnet
-    location: Reihe 2
-    device_type: Bladecenter
-    role: server
-    status: active
-    description: Blade-Chassis – gespeist aus Q21 (21F1.14) und Q22 (22F1.6)
 
   - name: Tank Lufteinlass
     site: OMCnet
@@ -532,7 +518,7 @@ power_feeds:
   - name: 21F1.14
     power_panel: Q21
     status: active
-    description: "Bladecenter 1"
+    description: ""
 
   - name: 21F1.15
     power_panel: Q21
@@ -573,7 +559,7 @@ power_feeds:
   - name: 22F1.6
     power_panel: Q22
     status: active
-    description: "Bladecenter 1"
+    description: ""
 
   - name: 22F1.7
     power_panel: Q22
