@@ -1,5 +1,67 @@
 # electric--netbox
 
+## Import in NetBox 4.6 (Web/API backend)
+
+Yes, this is possible via the NetBox REST API.
+
+This repository includes an importer script:
+- `netbox/import_netbox_api.py`
+
+### 1) Install dependencies
+
+```bash
+cd /workspaces/electric--netbox
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r netbox/requirements.txt
+```
+
+### 2) Create API token in NetBox
+
+In NetBox UI:
+- User menu -> API Tokens -> Add token
+- Grant write permissions for DCIM objects (sites, locations, racks, devices, power panels, power feeds)
+
+### 3) Run a dry-run first
+
+```bash
+export NETBOX_URL="https://your-netbox.example"
+export NETBOX_TOKEN="your_token_here"
+python3 netbox/import_netbox_api.py --file netbox/power_plan.yaml --dry-run
+```
+
+### 4) Run real import
+
+```bash
+python3 netbox/import_netbox_api.py --file netbox/power_plan.yaml
+```
+
+Optional flags:
+- `--update-existing` to patch existing objects when values differ
+- `--insecure` if your NetBox uses a self-signed certificate
+
+### What gets imported
+
+- sites
+- locations
+- manufacturers
+- device roles
+- device types
+- racks
+- devices
+- power panels
+- power feeds
+- cables
+
+### Cable import behavior
+
+For cable endpoints in `cables:` the importer automatically resolves missing objects:
+- `device + name` endpoint -> creates a device power port when missing
+- `power_panel + name` endpoint -> creates a panel power feed when missing
+- unknown endpoint devices -> creates placeholder Generic device automatically
+
+This allows your current cable definitions to be imported without manual pre-creation of all terminations.
+
 ## Schrank 5/6 – Stromkreise und Belegung USV1
 
 ```text
