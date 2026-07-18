@@ -9,10 +9,10 @@
 # SITES
 # -----------------------------------------------------------------------------
 sites:
-  - name: Rechenzentrum
-    slug: rechenzentrum
+  - name: OMCnet
+    slug: omcnet
     status: active
-    description: Hauptrechenzentrum
+    description: 
 
 
 # -----------------------------------------------------------------------------
@@ -21,354 +21,269 @@ sites:
 locations:
   - name: Schrank 5
     slug: schrank-5
-    site: Rechenzentrum
+    site: OMCnet
     description: USV1-Stromverteiler – Gruppen Q21–Q25
 
   - name: Schrank 6
     slug: schrank-6
-    site: Rechenzentrum
+    site: OMCnet
     description: USV-Feld-Stromverteiler – Trenner Q6–Q10
 
   - name: Koppelschrank
     slug: koppelschrank
-    site: Rechenzentrum
+    site: OMCnet
     description: Koppelschrank zwischen USV-1 und USV-Feld
 
   - name: Reihe 1
     slug: reihe-1
-    site: Rechenzentrum
+    site: OMCnet
 
   - name: Reihe 2
     slug: reihe-2
-    site: Rechenzentrum
+    site: OMCnet
 
   - name: Reihe 3
     slug: reihe-3
-    site: Rechenzentrum
+    site: OMCnet
 
   - name: Reihe 4
     slug: reihe-4
-    site: Rechenzentrum
+    site: OMCnet
 
   - name: Reihe 5
     slug: reihe-5
-    site: Rechenzentrum
+    site: OMCnet
 
   - name: Reihe 6
     slug: reihe-6
-    site: Rechenzentrum
+    site: OMCnet
 
   - name: Reihe 7
     slug: reihe-7
-    site: Rechenzentrum
+    site: OMCnet
 
 
 # -----------------------------------------------------------------------------
-# RACKS  (IT-Racks und Regale)
-# Typ "4-post-cabinet" für IT-Racks, "open-frame" für Regale (Lagerregale)
+# RACKS  (IT-Racks)
+# Typ "4-post-cabinet" für IT-Racks
 # -----------------------------------------------------------------------------
 racks:
   # ── Reihe 1 ──────────────────────────────────────────────────────────────
-  - name: Rack 1.1
-    site: Rechenzentrum
+  - name: 1.1
+    site: OMCnet
     location: Reihe 1
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 1.2
-    site: Rechenzentrum
+  - name: 1.2
+    site: OMCnet
     location: Reihe 1
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 1.3
-    site: Rechenzentrum
+  - name: 1.3
+    site: OMCnet
     location: Reihe 1
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 1.4
-    site: Rechenzentrum
+  - name: 1.4
+    site: OMCnet
     location: Reihe 1
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 1.5
-    site: Rechenzentrum
+  - name: 1.5
+    site: OMCnet
     location: Reihe 1
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 1.6
-    site: Rechenzentrum
+  - name: 1.6
+    site: OMCnet
     location: Reihe 1
     status: active
     type: 4-post-cabinet
 
   # ── Reihe 2 ──────────────────────────────────────────────────────────────
-  - name: Rack 2.2
-    site: Rechenzentrum
+  - name: 2.2
+    site: OMCnet
     location: Reihe 2
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 2.3
-    site: Rechenzentrum
+  - name: 2.3
+    site: OMCnet
     location: Reihe 2
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 2.4
-    site: Rechenzentrum
+  - name: 2.4
+    site: OMCnet
     location: Reihe 2
     status: active
     type: 4-post-cabinet
 
   # ── Reihe 3 ──────────────────────────────────────────────────────────────
-  - name: Rack 3.1
-    site: Rechenzentrum
+  - name: 3.1
+    site: OMCnet
     location: Reihe 3
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 3.2
-    site: Rechenzentrum
+  - name: 3.2
+    site: OMCnet
     location: Reihe 3
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 3.3
-    site: Rechenzentrum
+  - name: 3.3
+    site: OMCnet
     location: Reihe 3
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 3.5
-    site: Rechenzentrum
+  - name: 3.5
+    site: OMCnet
     location: Reihe 3
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 3.6
-    site: Rechenzentrum
+  - name: 3.6
+    site: OMCnet
     location: Reihe 3
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 3.7
-    site: Rechenzentrum
+  - name: 3.7
+    site: OMCnet
     location: Reihe 3
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 3.8
-    site: Rechenzentrum
+  - name: 3.8
+    site: OMCnet
     location: Reihe 3
     status: active
     type: 4-post-cabinet
 
   # ── Reihe 4 ──────────────────────────────────────────────────────────────
-  - name: Rack 4.1
-    site: Rechenzentrum
+  - name: 4.1
+    site: OMCnet
     location: Reihe 4
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 4.3
-    site: Rechenzentrum
+  - name: 4.3
+    site: OMCnet
     location: Reihe 4
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 4.4
-    site: Rechenzentrum
+  - name: 4.4
+    site: OMCnet
     location: Reihe 4
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 4.5
-    site: Rechenzentrum
+  - name: 4.5
+    site: OMCnet
     location: Reihe 4
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 4.6
-    site: Rechenzentrum
+  - name: 4.6
+    site: OMCnet
     location: Reihe 4
     status: active
     type: 4-post-cabinet
 
   # ── Reihe 5 ──────────────────────────────────────────────────────────────
-  - name: Rack 5.1
-    site: Rechenzentrum
+  - name: 5.1
+    site: OMCnet
     location: Reihe 5
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 5.3
-    site: Rechenzentrum
+  - name: 5.3
+    site: OMCnet
     location: Reihe 5
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 5.4
-    site: Rechenzentrum
+  - name: 5.4
+    site: OMCnet
     location: Reihe 5
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 5.5
-    site: Rechenzentrum
+  - name: 5.5
+    site: OMCnet
     location: Reihe 5
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 5.6
-    site: Rechenzentrum
+  - name: 5.6
+    site: OMCnet
     location: Reihe 5
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 5.7
-    site: Rechenzentrum
+  - name: 5.7
+    site: OMCnet
     location: Reihe 5
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 5.8
-    site: Rechenzentrum
+  - name: 5.8
+    site: OMCnet
     location: Reihe 5
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 5.9
-    site: Rechenzentrum
+  - name: 5.9
+    site: OMCnet
     location: Reihe 5
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 5.10
-    site: Rechenzentrum
+  - name: 5.10
+    site: OMCnet
     location: Reihe 5
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 5.11
-    site: Rechenzentrum
+  - name: 5.11
+    site: OMCnet
     location: Reihe 5
     status: active
     type: 4-post-cabinet
 
   # ── Reihe 6 ──────────────────────────────────────────────────────────────
-  - name: Rack 6.2
-    site: Rechenzentrum
+  - name: 6.2
+    site: OMCnet
     location: Reihe 6
     status: active
     type: 4-post-cabinet
 
   # ── Reihe 7 ──────────────────────────────────────────────────────────────
-  - name: Rack 7.2
-    site: Rechenzentrum
+  - name: 7.2
+    site: OMCnet
     location: Reihe 7
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 7.3
-    site: Rechenzentrum
+  - name: 7.3
+    site: OMCnet
     location: Reihe 7
     status: active
     type: 4-post-cabinet
 
-  - name: Rack 7.4
-    site: Rechenzentrum
+  - name: 7.4
+    site: OMCnet
     location: Reihe 7
     status: active
     type: 4-post-cabinet
-
-  # ── Regale (offene Lagerregale) ───────────────────────────────────────────
-  - name: Regal 1.0
-    site: Rechenzentrum
-    location: Reihe 1
-    status: active
-    type: open-frame
-    description: Lagerregal
-
-  - name: Regal 1.3
-    site: Rechenzentrum
-    location: Reihe 1
-    status: active
-    type: open-frame
-    description: Lagerregal
-
-  - name: Regal 2.1
-    site: Rechenzentrum
-    location: Reihe 2
-    status: active
-    type: open-frame
-    description: Lagerregal
-
-  - name: Regal 2.3
-    site: Rechenzentrum
-    location: Reihe 2
-    status: active
-    type: open-frame
-    description: Lagerregal
-
-  - name: Regal 4.6
-    site: Rechenzentrum
-    location: Reihe 4
-    status: active
-    type: open-frame
-    description: Lagerregal
-
-  - name: Regal 5.2
-    site: Rechenzentrum
-    location: Reihe 5
-    status: active
-    type: open-frame
-    description: Lagerregal
-
-  - name: Regal 5.8
-    site: Rechenzentrum
-    location: Reihe 5
-    status: active
-    type: open-frame
-    description: Lagerregal
-
-  - name: Regal 6.1
-    site: Rechenzentrum
-    location: Reihe 6
-    status: active
-    type: open-frame
-    description: Lagerregal
-
-  - name: Regal 6.2
-    site: Rechenzentrum
-    location: Reihe 6
-    status: active
-    type: open-frame
-    description: Lagerregal
-
-  - name: Regal 6.3
-    site: Rechenzentrum
-    location: Reihe 6
-    status: active
-    type: open-frame
-    description: Lagerregal
-
-  - name: Regal 7.1
-    site: Rechenzentrum
-    location: Reihe 7
-    status: active
-    type: open-frame
-    description: Lagerregal
-
-  - name: Regal 7.3
-    site: Rechenzentrum
-    location: Reihe 7
-    status: active
-    type: open-frame
-    description: Lagerregal
 
 
 # -----------------------------------------------------------------------------
@@ -411,7 +326,7 @@ device_types:
 # -----------------------------------------------------------------------------
 devices:
   - name: USV-1
-    site: Rechenzentrum
+    site: OMCnet
     location: Schrank 5
     device_type: USV-Anlage
     role: ups
@@ -419,7 +334,7 @@ devices:
     description: Hauptanlage USV-1 – speist Schrank 5 (Q21–Q25) via Koppelschrank
 
   - name: USV-2
-    site: Rechenzentrum
+    site: OMCnet
     location: Schrank 6
     device_type: USV-Anlage
     role: ups
@@ -427,7 +342,7 @@ devices:
     description: Redundanz-USV – speist Schrank 6 (Q6–Q10)
 
   - name: Koppelschrank
-    site: Rechenzentrum
+    site: OMCnet
     location: Koppelschrank
     device_type: Koppelschrank
     role: pdu
@@ -435,21 +350,21 @@ devices:
     description: Koppelschrank zwischen USV-1 und USV-Feld 1-4/Schrank-5; Abgänge F7/F8
 
   - name: Liebert Bypass-Schrank
-    site: Rechenzentrum
+    site: OMCnet
     device_type: Liebert Bypass-Schrank
     role: ups
     status: active
     description: Liebert-Bypass für USV-Feld (Q3)
 
   - name: NSHV 3Q1
-    site: Rechenzentrum
+    site: OMCnet
     device_type: NSHV-Hauptverteilung
     role: pdu
     status: active
     description: Hauptverteilung – Einspeisung über 3x4x185mm²/95 in USV-Feld
 
   - name: Bladecenter 1
-    site: Rechenzentrum
+    site: OMCnet
     location: Reihe 2
     device_type: Bladecenter
     role: server
@@ -457,28 +372,28 @@ devices:
     description: Blade-Chassis – gespeist aus Q21 (21F1.14) und Q22 (22F1.6)
 
   - name: Tank Lufteinlass
-    site: Rechenzentrum
+    site: OMCnet
     device_type: Generic
     role: other
     status: active
     description: Kühlsystem Tank Lufteinlass – gespeist aus Q21 (21F1.15)
 
   - name: Flurcam / RMS NSHV
-    site: Rechenzentrum
+    site: OMCnet
     device_type: Generic
     role: other
     status: active
     description: Flur-Kamera und Fernüberwachung NSHV – gespeist aus Q22 (22F1.1)
 
   - name: UV-Überwachung
-    site: Rechenzentrum
+    site: OMCnet
     device_type: Generic
     role: other
     status: active
     description: UV-Überwachungssystem – gespeist aus Q25 (25F1.15)
 
   - name: Alarm
-    site: Rechenzentrum
+    site: OMCnet
     device_type: Generic
     role: other
     status: active
@@ -491,48 +406,48 @@ devices:
 power_panels:
   # ── Schrank 5 – USV1 ─────────────────────────────────────────────────────
   - name: Q21
-    site: Rechenzentrum
+    site: OMCnet
     location: Schrank 5
 
   - name: Q22
-    site: Rechenzentrum
+    site: OMCnet
     location: Schrank 5
 
   - name: Q23
-    site: Rechenzentrum
+    site: OMCnet
     location: Schrank 5
 
   - name: Q24
-    site: Rechenzentrum
+    site: OMCnet
     location: Schrank 5
 
   - name: Q25
-    site: Rechenzentrum
+    site: OMCnet
     location: Schrank 5
 
   # ── Schrank 6 – Trenner ───────────────────────────────────────────────────
   - name: Q6
-    site: Rechenzentrum
+    site: OMCnet
     location: Schrank 6
     description: Trenner Q6
 
   - name: Q7
-    site: Rechenzentrum
+    site: OMCnet
     location: Schrank 6
     description: Trenner Q7
 
   - name: Q8
-    site: Rechenzentrum
+    site: OMCnet
     location: Schrank 6
     description: Trenner Q8
 
   - name: Q9
-    site: Rechenzentrum
+    site: OMCnet
     location: Schrank 6
     description: Trenner Q9
 
   - name: Q10
-    site: Rechenzentrum
+    site: OMCnet
     location: Schrank 6
     description: Trenner Q10
 
