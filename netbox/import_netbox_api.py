@@ -175,6 +175,53 @@ def ensure_device_role(
     return obj["id"]
 
 
+def ensure_manufacturer(
+    nb: NetBoxClient,
+    manufacturer_ids: Dict[str, int],
+    name: str,
+    update_existing: bool,
+) -> int:
+    if name in manufacturer_ids:
+        return manufacturer_ids[name]
+    payload = {"name": name, "slug": slugify(name)}
+    obj = nb.ensure("dcim/manufacturers", {"name": name}, payload, update_existing=update_existing)
+    manufacturer_ids[name] = obj["id"]
+    return obj["id"]
+
+
+def ensure_device_type_for_device(
+    nb: NetBoxClient,
+    dev_type_name: str,
+    manufacturer_ids: Dict[str, int],
+    device_type_ids: Dict[str, int],
+    device_type_alias_ids: Dict[str, int],
+    update_existing: bool,
+) -> int:
+    existing = device_type_ids.get(dev_type_name)
+    if existing is not None:
+        return existing
+
+    alias_match = device_type_alias_ids.get(dev_type_name)
+    if alias_match is not None:
+        device_type_ids[dev_type_name] = alias_match
+        return alias_match
+
+    manufacturer_id = ensure_manufacturer(nb, manufacturer_ids, "Generic", update_existing)
+    payload = {
+        "manufacturer": manufacturer_id,
+        "model": dev_type_name,
+        "slug": slugify(dev_type_name),
+        "u_height": 0,
+        "is_full_depth": False,
+    }
+    lookup = {"manufacturer_id": manufacturer_id, "model": dev_type_name}
+    obj = nb.ensure("dcim/device-types", lookup, payload, update_existing=update_existing)
+    device_type_ids[dev_type_name] = obj["id"]
+    device_type_alias_ids[f"Generic {dev_type_name}"] = obj["id"]
+    print(f"Auto-created missing device type: {dev_type_name} (manufacturer: Generic)")
+    return obj["id"]
+
+
 def ensure_device_by_name(
     nb: NetBoxClient,
     device_name: str,
@@ -371,6 +418,7 @@ def import_data(nb: NetBoxClient, model: Dict[str, Any], update_existing: bool =
     manufacturer_ids: Dict[str, int] = {}
     role_ids: Dict[str, int] = {}
     device_type_ids: Dict[str, int] = {}
+    device_type_alias_ids: Dict[str, int] = {}
     device_ids: Dict[str, int] = {}
     panel_ids: Dict[str, int] = {}
 
@@ -394,9 +442,7 @@ def import_data(nb: NetBoxClient, model: Dict[str, Any], update_existing: bool =
         manufacturer_names.add("Generic")
 
     for name in sorted(manufacturer_names):
-        payload = {"name": name, "slug": slugify(name)}
-        obj = nb.ensure("dcim/manufacturers", {"name": name}, payload, update_existing=update_existing)
-        manufacturer_ids[name] = obj["id"]
+        ensure_manufacturer(nb, manufacturer_ids, name, update_existing)
 
     for dev in model.get("devices", []):
         role = dev.get("role", "other")
@@ -431,6 +477,7 @@ def import_data(nb: NetBoxClient, model: Dict[str, Any], update_existing: bool =
         lookup = {"manufacturer_id": payload["manufacturer"], "model": payload["model"]}
         obj = nb.ensure("dcim/device-types", lookup, payload, update_existing=update_existing)
         device_type_ids[dt["model"]] = obj["id"]
+        device_type_alias_ids[f"{dt['manufacturer']} {dt['model']}"] = obj["id"]
 
     for rack in model.get("racks", []):
         payload = {
@@ -445,10 +492,18 @@ def import_data(nb: NetBoxClient, model: Dict[str, Any], update_existing: bool =
 
     for dev in model.get("devices", []):
         dev_type_name = dev["device_type"]
+        dev_type_id = ensure_device_type_for_device(
+            nb,
+            dev_type_name,
+            manufacturer_ids,
+            device_type_ids,
+            device_type_alias_ids,
+            update_existing,
+        )
         payload = {
             "name": dev["name"],
             "site": require(site_ids, dev["site"], "site"),
-            "device_type": require(device_type_ids, dev_type_name, "device_type"),
+            "device_type": dev_type_id,
             "role": require(role_ids, dev.get("role", "other"), "role"),
             "status": dev.get("status", "active"),
             "description": dev.get("description", ""),
