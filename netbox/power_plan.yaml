@@ -12,7 +12,7 @@ sites:
   - name: OMCnet
     slug: omcnet
     status: active
-    description: 
+    description: Hauptrechenzentrum
 
 
 # -----------------------------------------------------------------------------
